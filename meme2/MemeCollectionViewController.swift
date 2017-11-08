@@ -43,6 +43,8 @@ class MemeCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemeCollectionViewCell", for: indexPath) as! MemeCollectionViewCell
         let meme = memes[indexPath.item]
         let imageView = UIImageView(image: meme.memedImage)
+        //imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFit
         cell.backgroundView = imageView
         return cell
     }

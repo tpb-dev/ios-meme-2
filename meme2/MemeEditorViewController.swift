@@ -160,19 +160,22 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     func generateMemedImage() -> UIImage {
         
-        toolBar.isHidden = true
-        topToolBar.isHidden = true
+        hideToolBars(toHide: true)
         
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        toolBar.isHidden = false
-        topToolBar.isHidden = false
+        hideToolBars(toHide: false)
         
         
         return memedImage
+    }
+    
+    func hideToolBars(toHide: Bool) {
+        toolBar.isHidden = toHide
+        topToolBar.isHidden = toHide
     }
     
     @IBAction func shareMeme(_ sender: Any) {
